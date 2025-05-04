@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Find New Music</title>
+  <link rel="icon" type="image/x-icon" href="https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/04490b4c-d670-4ea7-9f38-e70ed5c1f2b1.thumbnail_69264CC0-B7DA-42DB-9B44-5F9C0D020FFF.jpg?v=1745959703847" />
+
+<!-- begginning of styles -->
+
+  <style>
+    body {
+  background-image: url("https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/white-crumpled-paper-texture-background-crumpled-paper-ball-isolated-on-white-with-clipping-path-abstract-background-of-crumpled-white-paper-generate-ai-free-photo.jpg?v=1746034695275");
+}
+
+    #navbar {
+      background-color: #333;
+      position: fixed;
+      top: -50px;
+      width: 100%;
+      transition: top 0.3s;
+      z-index: 1000;
+    }
+
+    #navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 15px;
+      text-decoration: none;
+      font-size: 27px;
+    }
+
+    #navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    h1, h2 {
+      text-align: center;
+    }
+     h1 {
+  font-size: 80px;
+    }
+       h2 {
+  font-size: 60px;
+    }
+
+    .flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    img {
+      width: 35%;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+  </head>
+<body>
+  <h1>
+     Contact Me!
+    
+  </h1>
+  <h1>
+    Cnordst1@msudenver.edu
+  </h1>
+  <h2>
+    I made this webiste in hopes that anyone can access this website and find new music fast!
+  </h2>
+  <h2>
+    A person needs music for any activity. I was tired of the same music over and over again.
+  </h2>
+  <h1>
+    Please email me FAQ 
+  </h1>
+  <!-- Navbar -->
+  <div id="navbar">
+    <a href="index.html">Home</a>
+    <a href="Daily-Album.html">Daily Album</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+
+  <script>
+    // Show navbar on scroll
+    window.onscroll = function () {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-50px";
+      }
+    };
+  </script>
+  </body>
+</html>
