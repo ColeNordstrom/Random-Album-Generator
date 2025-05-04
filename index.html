@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Find New Music</title>
+  <link rel="icon" type="image/x-icon" href="https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/04490b4c-d670-4ea7-9f38-e70ed5c1f2b1.thumbnail_69264CC0-B7DA-42DB-9B44-5F9C0D020FFF.jpg?v=1745959703847" />
+
+  <style>
+
+    body {
+  background-image: url("https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/white-crumpled-paper-texture-background-crumpled-paper-ball-isolated-on-white-with-clipping-path-abstract-background-of-crumpled-white-paper-generate-ai-free-photo.jpg?v=1746034695275");
+}
+    body {
+      margin: 0;
+      background-color: #f2f2f2;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .btn-group .button {
+      display: inline-block;
+      padding: 15px 25px;
+      font-size: 55px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      outline: none;
+      color: white;
+      background-color: #2F4F4F;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 9px #999;
+      margin: 5px;
+    }
+
+    .button:hover {
+      background-color: #ff8080;
+      color: black;
+    }
+
+    .button:active {
+      background-color: #ff3333;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+
+    #navbar {
+      background-color: #333;
+      position: fixed;
+      top: -50px;
+      width: 100%;
+      transition: top 0.3s;
+      z-index: 1000;
+    }
+
+    #navbar a {
+      float: left;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 15px;
+      text-decoration: none;
+      font-size: 27px;
+    }
+
+    #navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    h1, h2 {
+      text-align: center;
+      
+    }
+   h1 {
+  font-size: 80px;
+    }
+       h2 {
+  font-size: 60px;
+    }
+    .flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    img {
+      width: 34%;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Find New Music Here!</h1>
+
+  <!-- Buttons -->
+    <div class="btn-group">
+    <button class="button" id="hiphop-btn">Hip-Hop</button>
+    <button class="button" id="electronic-btn">Electronic</button>
+    <button class="button" id="country-btn">Country</button>
+    <button class="button" id="rock-btn">Rock</button>
+    <button class="button" id="rnb-btn">RnB</button>
+    <button class="button" id="soul-btn">Soul</button>
+    <button class="button" id="pop-btn">Pop</button>
+    <button class="button" id="alternative-btn">Alternative</button>
+    <button class="button" id="classical-btn">Classical</button>
+    <button class="button" id="random-btn">Random</button>
+  </div>
+
+  <!-- Display -->
+  <div class="flex">
+    <h2>Random Album Below</h2>
+    <img id="album-image" src="" alt="Random album" />
+  </div>
+
+  <!-- Navbar -->
+  <div id="navbar">
+    <a href="index.html">Home</a>
+    <a href="Daily-Album.html">Daily Album</a>
+    <a href="Contact.html">Contact</a>
+  </div>
+
+  <script>
+    // Show navbar when scroll
+    window.onscroll = function () {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("navbar").style.top = "0";
+      } else {
+        document.getElementById("navbar").style.top = "-50px";
+      }
+    };
+
+    // Album images
+    const genreImages = {
+      hiphop: [
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/adf1b206-feba-47cc-901b-4379f2efe3b2.hip%20hop%201.jpg?v=1745992356084",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/hip%20hop%202.jpg?v=1745992857522",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/hip%20hop%203.png?v=1745992903291",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/image_2025-04-30_000331386.png?v=1745993012031",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/hip%20hop%205.jpg?v=1745993065573",
+      ],
+      electronic: [
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/electronic%201.png?v=1745995265375",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/electronic%202.jpg?v=1745995319451",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/electronic%203.jpg?v=1745995369039",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/electronic%204.jpg?v=1745995403790",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/electronic%205.jpg?v=1745995454470",
+      ],
+      country: [
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/country%201.jpg?v=1745996428912",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/country%202.jpg?v=1745996470484",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/country%203.webp?v=1745996549810",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/country%204.png?v=1745996588212",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/country%205.webp?v=1745996691422",
+      ],
+      rock: [
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/rock%201.webp?v=1745996836812",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/rock%202.jpg?v=1745996898036",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/rock%203.jpg?v=1745996948549",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/rock%204.jpg?v=1745996994013",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/rock%205.jpg?v=1745997079544",
+      ],
+	    pop: [
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/pop%201.jpg?v=1745997936431",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/pop%202.webp?v=1745998030987",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/pop%203.jpg?v=1745998322101",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/pop%204.jpg?v=1745998419183",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/pop%205.svg?v=1745998497610",
+      ],
+      rnb: [
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/r%26b%201.webp?v=1745997113310",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/r%26b%202.jpg?v=1745997155878",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/r%26b%203.jpg?v=1745997252678",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/r%26b%204.jpg?v=1745997401334",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/r%26b%205.jpg?v=1745997435342",
+      ],
+     soul: [
+       "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/soul%201.jpg?v=1745999619273",
+       "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/soul%202.jpg?v=1745999728803",
+       "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/soul%203.jpg?v=1745999794661",
+       "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/soul%204.png?v=1745999940314",
+       "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/soul%205.jpg?v=1746000024749",
+     ],
+     alternative: [
+      "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/alternative%201.png?v=1746032646865",
+      "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/alternative%202.jpg?v=1746032727819",
+      "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/alternative%203.jpg?v=1746032771124",
+      "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/alternative%204.jpg?v=1746032805727",
+      "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/alternative%205.png?v=1746032858828",
+      ],
+    classical: [
+      "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/classical%201.jpg?v=1746033113938",
+      "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/classical%202.jpg?v=1746033116381",
+      "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/classical%203.jpeg?v=1746033119438",
+      "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/classical%204.jpg?v=1746033123862",
+      "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/classical%205.jfif?v=1746033243272",
+      ],
+      random: [
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/adf1b206-feba-47cc-901b-4379f2efe3b2.hip%20hop%201.jpg?v=1745992356084",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/hip%20hop%202.jpg?v=1745992857522",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/hip%20hop%203.png?v=1745992903291",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/image_2025-04-30_000331386.png?v=1745993012031",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/hip%20hop%205.jpg?v=1745993065573",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/electronic%201.png?v=1745995265375",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/electronic%202.jpg?v=1745995319451",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/electronic%203.jpg?v=1745995369039",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/electronic%204.jpg?v=1745995403790",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/electronic%205.jpg?v=1745995454470",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/country%201.jpg?v=1745996428912",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/country%202.jpg?v=1745996470484",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/country%203.webp?v=1745996549810",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/country%204.png?v=1745996588212",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/country%205.webp?v=1745996691422",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/rock%201.webp?v=1745996836812",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/rock%202.jpg?v=1745996898036",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/rock%203.jpg?v=1745996948549",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/rock%204.jpg?v=1745996994013",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/rock%205.jpg?v=1745997079544",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/pop%201.jpg?v=1745997936431",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/pop%202.webp?v=1745998030987",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/pop%203.jpg?v=1745998322101",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/pop%204.jpg?v=1745998419183",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/pop%205.svg?v=1745998497610",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/r%26b%201.webp?v=1745997113310",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/r%26b%202.jpg?v=1745997155878",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/r%26b%203.jpg?v=1745997252678",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/r%26b%204.jpg?v=1745997401334",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/r%26b%205.jpg?v=1745997435342",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/soul%201.jpg?v=1745999619273",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/soul%202.jpg?v=1745999728803",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/soul%203.jpg?v=1745999794661",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/soul%204.png?v=1745999940314",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/soul%205.jpg?v=1746000024749",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/alternative%201.png?v=1746032646865",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/alternative%202.jpg?v=1746032727819",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/alternative%203.jpg?v=1746032771124",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/alternative%204.jpg?v=1746032805727",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/alternative%205.png?v=1746032858828",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/classical%201.jpg?v=1746033113938",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/classical%202.jpg?v=1746033116381",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/classical%203.jpeg?v=1746033119438",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/classical%204.jpg?v=1746033123862",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/classical%205.jfif?v=1746033243272",
+        "https://cdn.glitch.global/fe2cab68-b362-4214-ab0a-3b54365f4ea9/random%201.jfif?v=1746033701770",
+        
+      ],
+     };
+
+    const albumImage = document.getElementById("album-image");
+
+    function showRandomAlbum(genre) {
+      const images = genreImages[genre];
+      if (!images) return;
+      const randomIndex = Math.floor(Math.random() * images.length);
+      albumImage.src = images[randomIndex];
+    }
+
+    // Attach to buttons
+    document.getElementById("hiphop-btn").addEventListener("click", () => showRandomAlbum("hiphop"));
+    document.getElementById("electronic-btn").addEventListener("click", () => showRandomAlbum("electronic"));
+    document.getElementById("country-btn").addEventListener("click", () => showRandomAlbum("country"));
+    document.getElementById("rock-btn").addEventListener("click", () => showRandomAlbum("rock"));
+    document.getElementById("rnb-btn").addEventListener("click", () => showRandomAlbum("rnb"));
+    document.getElementById("pop-btn").addEventListener("click", () => showRandomAlbum("pop"));
+    document.getElementById("soul-btn").addEventListener("click", () => showRandomAlbum("soul"));
+    document.getElementById("alternative-btn").addEventListener("click", () => showRandomAlbum("alternative"));
+    document.getElementById("classical-btn").addEventListener("click", () => showRandomAlbum("classical"));
+    document.getElementById("random-btn").addEventListener("click", () => showRandomAlbum("random"));
+
+    // Show a default image on load
+    window.onload = () => showRandomAlbum("hiphop");
+  </script>
+</body>
+</html>
